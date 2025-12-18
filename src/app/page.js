@@ -1,23 +1,17 @@
-import Image from "next/image";
-import Link from "next/link";
+import CardList from "../components/cardList/CardList";
+import CategoryList from "../components/categoryList/CategoryList";
+import Featured from "../components/featured/Featured";
+import Menu from "../components/menu/Menu";
 
 export default function Home() {
   return (
-    <div className=" text-2xl font-semibold text-black">
-      <h1>
-        lorem ipsum dolor sit amet consectetur adipisicing elit.lorem ipsum
-        dolor sit amet consectetur adipisicing elit.lorem ipsum dolor sit amet
-        consectetur adipisicing elit.lorem ipsum dolor sit amet consectetur
-        adipisicing elit.lorem ipsum dolor sit amet consectetur adipisicing
-        elit.lorem ipsum dolor sit amet consectetur adipisicing elit.lorem ipsum
-        dolor sit amet consectetur adipisicing elit.lorem ipsum dolor sit amet
-        consectetur adipisicing elit.lorem ipsum dolor sit amet consectetur
-        adipisicing elit.lorem ipsum dolor sit amet consectetur adipisicing
-        elit.lorem ipsum dolor sit amet consectetur adipisicing elit.lorem ipsum
-        dolor sit amet consectetur adipisicing elit.lorem ipsum dolor sit amet
-        consectetur adipisicing elit.
-      </h1>
-      <Link href="/about"> Go to About Page </Link>
+    <div>
+      <Featured />
+      <CategoryList />
+      <div>
+        <CardList />
+        <Menu />
+      </div>
     </div>
   );
 }

@@ -77,7 +77,6 @@ const page = () => {
             </div>
             {/* comments */}
             <div className="mt-12">
-              <h2 className="text-2xl font-semibold mb-4">Comments</h2>
               <div className="space-y-6">
                 <Comments />
               </div>

@@ -61,4 +61,27 @@ items-center: Center it vertically (Top/Bottom).
 
 flex-1 = “share the space equally”
 
+
+🔹 What does self-center do?
+
+self-center is a Tailwind class that means:
+
+align-self: center;
+
+In simple words:
+
+It centers ONE item inside a flex container, without affecting others.
+
+By default the react creates the server side components
+
+To make it client side component we have to add "use client" at the top of the file
+
+In Next.js App Router, you can use useState, useEffect, and other React hooks only inside files marked with "use client".
+
+React components MUST start with a capital letter.
+Otherwise, React treats them as normal functions, and hooks will not work.
+🧠 Memory Trick
+
+If it uses hooks → it must start with a Capital letter
+
 */

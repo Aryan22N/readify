@@ -2,7 +2,7 @@ import Link from "next/link";
 import React from "react";
 
 const AuthLinks = () => {
-  const status = "nonauthenticated";
+  const status = "authenticated";
 
   return (
     <div className="flex items-center gap-3">

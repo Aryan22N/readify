@@ -82,24 +82,30 @@
 
 // export default pagee;
 
+"use client";
+
+import { useEffect } from "react";
 import { SocialButton } from "@/components/base/buttons/social-button";
+import { signIn, useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
 
 export default function SocialButtonGroupBrandDemo() {
+  const { status } = useSession();
+  const router = useRouter();
+
+  useEffect(() => {
+    if (status === "authenticated") {
+      router.replace("/");
+    }
+  }, [status, router]);
+
+  if (status === "loading") {
+    return null;
+  }
+
   return (
     <div className="min-h-screen flex items-center justify-center px-4">
-      {/* Card */}
-      <div
-        className="
-          w-full max-w-sm
-          bg-white
-          rounded-2xl
-          shadow-lg
-          p-6
-          flex flex-col
-          gap-4
-        "
-      >
-        {/* Heading */}
+      <div className="w-full max-w-sm bg-white rounded-2xl shadow-lg p-6 flex flex-col gap-4">
         <div className="text-center mb-2">
           <h1 className="text-2xl font-bold">Sign in</h1>
           <p className="text-sm text-gray-500 mt-1">
@@ -107,8 +113,11 @@ export default function SocialButtonGroupBrandDemo() {
           </p>
         </div>
 
-        {/* Buttons */}
-        <SocialButton social="google" theme="brand">
+        <SocialButton
+          social="google"
+          theme="brand"
+          onClick={() => signIn("google")}
+        >
           Sign in with Google
         </SocialButton>
 

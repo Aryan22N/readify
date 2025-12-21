@@ -84,4 +84,48 @@ Otherwise, React treats them as normal functions, and hooks will not work.
 
 If it uses hooks → it must start with a Capital letter
 
+### 🔐 Auth.js Folder Structure – Short Note (For Future Reference)
+
+* **`app/api/auth/[...nextauth]/route.ts`**
+
+  * Catch-all API route for Auth.js
+  * Handles **signin, signout, session, callbacks**
+  * Required because Auth.js uses `/api/auth/*`
+
+* **`[...nextauth]`**
+
+  * Catch-all dynamic folder
+  * One file handles **all auth-related routes**
+
+* **`lib/auth.ts`**
+
+  * Central auth configuration
+  * Providers, callbacks, session strategy
+
+* **`(auth)` route group**
+
+  * Groups auth pages like `/login`, `/register`
+  * Does **not** affect URL structure
+
+* **`middleware.ts`**
+
+  * Protects private routes
+  * Redirects unauthenticated users
+
+📌 **Why this pattern?**
+
+* Clean code
+* Scalable
+* Industry standard
+* Easy OAuth + session handling
+
+👉 **Remember:**
+**UI → `(auth)` | Logic → `lib/auth.ts` | API → `[...nextauth]` | Protection → `middleware.ts`**
+
+
+🔥 Why router.replace() is Better
+Method	Result
+push()	User can go back to login ❌
+replace()	Login page removed from history ✅
+
 */

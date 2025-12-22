@@ -128,4 +128,25 @@ Method	Result
 push()	User can go back to login ❌
 replace()	Login page removed from history ✅
 
+### 🔹 `useSession` – Short Summary
+
+`useSession` is a **NextAuth client-side hook** used to check whether a user is **logged in or not** and to access **basic user information** like name, email, and profile image.
+
+It returns:
+
+* **`session`** → user data
+* **`status`** → `"loading"`, `"authenticated"`, or `"unauthenticated"`
+
+It is mainly used to:
+
+* Show/hide UI based on login state
+* Display user details (Navbar, Profile, Dashboard)
+* Protect client-side pages or components
+
+`useSession` should be used **only in client components** and **not for backend security**.
+For secure server-side authentication, `getServerSession()` is used instead.
+
+
+
+
 */

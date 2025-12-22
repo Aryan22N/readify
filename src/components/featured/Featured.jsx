@@ -1,7 +1,23 @@
+"use client";
 import React from "react";
 import Image from "next/image";
+import { useSession } from "next-auth/react";
+import { getFirstName } from "../../utils/getFirstName";
 
 const Featured = () => {
+  const { data: session, status } = useSession();
+  if (status === "loading") {
+    return null; // or a skeleton
+  }
+
+  //   if (status === "loading") {
+  //   return (
+  //     <div className="flex justify-center items-center min-h-[200px]">
+  //       <div className="h-6 w-6 animate-spin rounded-full border-2 border-blue-600 border-t-transparent" />
+  //     </div>
+  //   );
+  // }
+
   return (
     <section className="w-full mt-8">
       {/* Heading */}
@@ -14,7 +30,10 @@ const Featured = () => {
         leading-tight
       "
       >
-        <span className="block">Hey, Aryan !</span>
+        {/* <span className="block">Hey, {session.user.name}!</span> */}
+        <span className="block">
+          Hey, {getFirstName(session?.user?.name)}!
+        </span>{" "}
         Discover <span className="text-blue-600">some stories</span> and
         creative ideas.
       </h1>

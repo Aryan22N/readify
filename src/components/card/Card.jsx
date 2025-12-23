@@ -1,8 +1,9 @@
+"use client";
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 
-const Card = () => {
+const Card = ({ news }) => {
   return (
     <article className="w-full">
       <div
@@ -14,39 +15,41 @@ const Card = () => {
         {/* Image */}
         <div className="w-full md:w-[350px] h-[350px] relative">
           <Image
-            src="/p1.jpeg"
-            alt="Featured Image"
+            src={news.image || "/p1.jpeg"}
+            alt={news.title}
             fill
             className="rounded-2xl object-cover shadow-lg"
-            priority
           />
         </div>
 
         {/* Content */}
         <div className="flex-1 flex flex-col gap-3">
           <div className="flex items-center gap-2 text-sm">
-            <span className="text-gray-500">11.02.2023</span>
+            <span className="text-gray-500">
+              {news.publishedAt.slice(0, 10)}
+            </span>
 
             <span className="text-gray-400">•</span>
 
             <span className="uppercase text-red-500 font-semibold tracking-wide">
-              Culture
+              {news.category || "News"}
             </span>
           </div>
 
           <h2 className="text-xl sm:text-2xl font-bold max-w-lg">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            {news.title}
           </h2>
 
           <p className="text-gray-600 text-sm sm:text-base max-w-lg">
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Mollitia
-            neque fuga in dolore deserunt aut porro exercitationem, architecto
-            suscipit reiciendis, obcaecati nisi molestias sapiente, numquam
-            quis? Officia ex consectetur beatae?
+            {news.description}
           </p>
 
           <div className="mt-2 w-fit">
-            <Link href="/" className="font-semibold">
+            <Link
+              href={news.sourceUrl}
+              target="_blank"
+              className="font-semibold"
+            >
               Read More
             </Link>
             <span className="block h-[2px] w-full bg-rose-400 transition-all group-hover:w-full "></span>

@@ -2,10 +2,18 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 const Card = ({ news }) => {
   return (
-    <article className="w-full">
+    <motion.article
+      className="w-full"
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      whileHover={{ scale: 1.02 }}
+      transition={{ duration: 0.4, ease: "easeOut" }}
+      viewport={{ once: true }}
+    >
       <div
         className="
           flex flex-col md:flex-row
@@ -56,7 +64,7 @@ const Card = ({ news }) => {
           </div>
         </div>
       </div>
-    </article>
+    </motion.article>
   );
 };
 
